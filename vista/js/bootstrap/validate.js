@@ -1,3 +1,4 @@
+
 function mostrar(){
     var clave,opcion;
     clave=document.getElementById("clave");
@@ -7,5 +8,6 @@ function mostrar(){
     }else{
         clave.style.display="none";
     }
-}
+};
+
 

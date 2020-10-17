@@ -24,6 +24,5 @@ $respuesta = $obj->verificarDatos($datos);
 <?php
 include_once '../estructura/pie.php';
 ?>
-</body>
-</html>
+
 

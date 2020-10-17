@@ -14,15 +14,30 @@ Descripción del Archivo
 
 Clave del Archivo a modificar. (Este debe ser un campo Oculto. -->
 
-<div class="container col-lg-8">
-    <form action="acciones1" method="post" class="form-horizontal mt-4" novalidate>
-        <div class="form-group ">
-            <label class="label">Nombre del Archivo:</label>
-            <input type="text" class="form-control" placeholder="1234.png"> 
+<div class="container col-lg-8 bg-light">
+    <form action="accionAmarchivo.php" method="post" class="form-horizontal mt-4 needs-validation" enctype="multipart/form-data" novalidate>
+        <div class="form-group">
+            <label>
+                cargar archivo
+            </label>
+            <input type="file" name="archivo" id="archivo" onchange="sugerirExtension()">
         </div>
         <div class="form-group ">
-            <label class="label">Descripcion:</label>
-            <input type="text" class="form-control" placeholder=""> 
+            <label class="label">Nombre del Archivo:</label>
+            <input type="text" pattern="^[a-zA-Z]+\.?[a-zA-z]" class="form-control" placeholder="1234.png"> 
+            <div class="valid-feedback">
+                genial
+            </div>
+            <div class="invalid-feedback">
+                el campo no es el correcto o esta vacio
+            </div>
+            
+        </div>
+        <div class="form-group" id="editor">
+            <textarea id="editor">
+                Esta es una descripción genérica, si lo necesita la puede cambiar.
+            </textarea>
+            
         </div>
         <div class="form-group">
             <label>Usuario:</label>
@@ -36,23 +51,23 @@ Clave del Archivo a modificar. (Este debe ser un campo Oculto. -->
         <div class="form-group">
                     <div class="row">
                         <div class="ml-2">
-                            <input type="radio" class="custom-control-inline" id="elijo" name="elijo" value="imagen" required>
+                            <input type="radio" class="custom-control-inline" id="img" name="tipo" value="imagen" required>
                         <label class="control-label" for="customControlValidation3">Imagen</label>
                         </div>
                         <div class="ml-2">
-                            <input type="radio" class="custom-control-inline" id="elijo" name="elijo" value="zip" required>
+                            <input type="radio" class="custom-control-inline" id="zip" name="tipo" value="zip" required>
                         <label class="control-label" for="customControlValidation3">Zip</label>
                         </div>
                         <div class="ml-2">
-                            <input type="radio" class="custom-control-inline" id="elijo" name="elijo" value="doc" required>
+                            <input type="radio" class="custom-control-inline" id="doc" name="tipo" value="doc" required>
                         <label class="control-label" for="customControlValidation3">Doc</label>
                         </div>
                         <div class="ml-2">
-                            <input type="radio" class="custom-control-inline" id="elijo" name="elijo" value="xls" required>
+                            <input type="radio" class="custom-control-inline" id="xls" name="tipo" value="xls" required>
                         <label class="control-label" for="customControlValidation3">XLS</label>
                         </div>
                         <div class="ml-2">
-                            <input type="radio" class="custom-control-inline" id="elijo" name="elijo" value="pdf" required>
+                            <input type="radio" class="custom-control-inline" id="pdf" name="tipo" value="pdf" required>
                         <label class="control-label" for="customControlValidation3">Pdf</label>
                         </div>
                         
@@ -60,8 +75,8 @@ Clave del Archivo a modificar. (Este debe ser un campo Oculto. -->
                     </div>
                 </div>
         <div class="form-group">
-                            <label class="label">Clave:</label>
-                            <input type="password" class="form-control" id="clave" name="clave" required>       
+                            
+                            <input type="hidden" class="form-control" id="clave" name="clave" required>       
                       </div>
         <div class="form-group float-left">
                             

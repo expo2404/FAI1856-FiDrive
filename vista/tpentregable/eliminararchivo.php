@@ -3,7 +3,12 @@ include_once '../estructura/cabecera.php';
 ?>
 
 
+<?php
 
+$datos = data_submitted();
+$obj = new Control_Contenido($datos);
+$respuesta = $obj->obtenerNombre($datos);
+?>
 
 
 <!--Creamos el archivo eliminararchivo.php para eliminar un Archivo. Este archivo debe incluir los archivos: cabedera.php, pie.php y menu.php
@@ -18,7 +23,7 @@ Usuario que lo carga (Seleccionar desde un Combo, los usuarios posibles son: adm
 
 
 
-<div class="container col-lg-8">
+<div class="container col-lg-6">
     <form action="acciones1" method="post" class="form-horizontal mt-4 needs-validation" novalidate>
         <div class="form-group ">
             <label class="label">Nombre del Archivo Compartido:</label>

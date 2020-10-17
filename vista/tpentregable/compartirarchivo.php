@@ -30,11 +30,11 @@ Botón que permite generar un hash que sera el acceso para compartir el archivo-
         </div>
         <div class="form-group ">
             <label class="label">Ingresar cantidad de días que se comparte:</label>
-            <input type="text" class="form-control" id="dia" name="dia" placeholder=""> 
+            <input pattern="^[0-9]+$" type="text" class="form-control" id="dia" name="dia" placeholder=""> 
         </div>
         <div class="form-group">
             <label class="label">Ingresar cantidad de descargar posibles:</label>
-            <input type="text" class="form-control" id="descarga" name="descarga" placeholder=""> 
+            <input pattern="^[0-9]+$" type="text" class="form-control" id="descarga" name="descarga" placeholder=""> 
         </div>
         <div class="form-group">
             <label>Usuario que lo carga:</label>
@@ -51,10 +51,13 @@ Botón que permite generar un hash que sera el acceso para compartir el archivo-
         </div>
         <div class="form-group" id="clave" style="display: none">
             <label class="label">Clave:</label>
-            <input type="password" class="form-control" id="contrasena" name="contrasena" required>       
+            <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+            <p id="pantalla">
+            </p>
         </div>
+        
         <div class="form-group">
-            <button type="button" name="opcion" id="opcion" class="btn btn-success">HASH</button>
+            <button type="button" name="opcion" id="opcion" class="btn btn-warning">generar hash</button>
             
         </div>
         <div class="form-group float-left">

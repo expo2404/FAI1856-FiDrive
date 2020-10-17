@@ -18,6 +18,5 @@ $respuesta = $obj->validarInfo($datos);
 <?php
 include_once '../estructura/pie.php';
 ?>
-</body>
-</html>
+
 
