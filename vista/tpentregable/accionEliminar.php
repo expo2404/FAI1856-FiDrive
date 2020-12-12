@@ -2,20 +2,15 @@
 include_once '../estructura/cabecera.php';
 ?>
 
-
 <?php
 
 $datos = data_submitted();
 $obj = new Control_Contenido();
-//$respuestas=$obj->subirArchivo();
-$respuesta = $obj->creacion($datos);
-
-
+if($obj->eliminar($datos)){
+    echo "se ha eliminado el archivo";
+}
 ?>
-<?php
-echo $respuesta;
-//echo $respuestas;
-?>
+
 <a href="contenido.php">Volver pagina anterior</a>
 
 
@@ -27,3 +22,4 @@ echo $respuesta;
 <?php
 include_once '../estructura/pie.php';
 ?>
+

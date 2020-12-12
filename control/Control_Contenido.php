@@ -56,13 +56,46 @@ class Control_Contenido {
             $texto= "ERROR: no se pudo cargar el archivo ";
             $todoOK=false;
         }
-        if ($todoOK){
-            $texto="El archivo se ha ingresado correctamente!";
-        }
-        else{
-            $texto=$error;
-        }
-        return $texto;
+        
+        return $todoOK;
     }
+    public function eliminar($param) {
+        $archivoestado=new control_archivocargadoestado();
+        $res=false;
+        $idarchivo["idarchivocargado"]=$param["id"];
+        $arreglo=$archivoestado->buscar($idarchivo);
+//        echo "idarchivoestado".$arreglo[0]->getIdarchivocargadoestado();
+//        echo "descrip".$arreglo[0]->getAcedescripcion();
+//        echo "idusuario".$arreglo[0]->getObjusuario()->getIdusuario();
+//        echo "idcargado".$arreglo[0]->getObjarchivocargado()->getIdarchivocargado();
+        $colestado=["idarchivocargadoestado"=>$arreglo[0]->getIdarchivocargadoestado(),"idestadotipos"=>4,"acedescripcion"=>$arreglo[0]->getAcedescripcion(),"idusuario"=>$arreglo[0]->getObjusuario()->getIdusuario(),"acefechaingreso"=>$arreglo[0]->getAcefechaingreso(),"acefechafin"=>"2018-12-09 00:44:20","idarchivocargado"=>$arreglo[0]->getObjarchivocargado()->getIdarchivocargado()];
+        if($archivoestado->alta($colestado)){
+            $res=true;
+        }
+        return $res;
+        
+    }
+    
+    public function compartir($param) {
+        
+        $archivoCargado=new control_archivocargado();
+        $archivoCargadoestado=new control_archivocargadoestado();
+        $archivos=$archivoCargado->buscar($param["id"]);
+        $colDatos = ["idarchivocargado" =>$param["id"], "acnombre" => $param["nombreC"], "acdescripcion" => $archivos[0]->getAcdescripcion(), "acicono" =>$archivos[0]->getAcicono(), "idusuario" => $param["user"], "aclinkacceso" => "patricio", "accantidaddescarga" =>$param["descarga"], "accantidadusada" =>$param["dia"], "acfechainiciocompartir" => "2020-11-14 00:34:00", "acefechafincompartir" => "0000-00-00 00:00:00", "acprotegidoclave" => "no"];
+        $id["idarchivocargado"]=$param["id"];
+        $archivos2=$archivoCargadoestado->buscar($id);
+        $colDatos_1=["idarchivocargadoestado"=>$archivos2[0]->getIdarchivocargadoestado(),"idestadotipos"=>2,"acedescripcion"=>"","idusuario"=>$param["user"],"acefechaingreso"=> date('Y-m-d H:i:s'),"acefechafin"=>"0000-00-00 00:00:00","idarchivocargado"=>$archivos2[0]->getObjarchivocargado()->getIdarchivocargado()];
+        if($archivoCargado->modificacion($colDatos)){
+             ECHO "MODIFICADO EXITO";
+            if($archivoCargadoestado->alta($colDatos_1)){
+                echo "ARCHIVO INSERTADO";
+                
+            }
+        }
+        
+        
+        
+       
+    }
+    
 }
-

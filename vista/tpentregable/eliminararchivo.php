@@ -7,7 +7,7 @@ include_once '../estructura/cabecera.php';
 
 $datos = data_submitted();
 $obj = new Control_Contenido($datos);
-$respuesta = $obj->obtenerNombre($datos);
+
 ?>
 
 
@@ -24,10 +24,11 @@ Usuario que lo carga (Seleccionar desde un Combo, los usuarios posibles son: adm
 
 
 <div class="container col-lg-6">
-    <form action="acciones1" method="post" class="form-horizontal mt-4 needs-validation" novalidate>
+    <form action="accionEliminar.php" method="post" class="form-horizontal mt-4 needs-validation" novalidate>
+        <input type="hidden" id="idemodificar" name="id" value="<?php echo $_GET["id"];?>">
         <div class="form-group ">
             <label class="label">Nombre del Archivo Compartido:</label>
-            <input type="text" pattern="^[a-zA-Z]+$" class="form-control" id="nombreC" name="nombreC" placeholder="1234.png" required> 
+            <input type="text" pattern="^[a-zA-Z.-_]+(\.?)[a-zA-z]+$" class="form-control" id="nombreC" name="nombreC" value="<?php echo $_GET['archivoeliminar'];?>" required> 
         </div>
         
         <div class="form-group">
@@ -54,7 +55,7 @@ Usuario que lo carga (Seleccionar desde un Combo, los usuarios posibles son: adm
         </div>
 
     </form>
-
+<a href="contenido.php">Volver pagina anterior</a>
 
 </div>
 </div>

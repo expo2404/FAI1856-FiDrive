@@ -52,7 +52,7 @@ include_once '../estructura/cabecera.php';
 
     </form>
 
-
+<a href="contenido.php">Volver pagina anterior</a>
 </div>
 </div>
 </div>

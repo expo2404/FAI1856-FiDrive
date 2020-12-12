@@ -23,10 +23,11 @@ Botón que permite generar un hash que sera el acceso para compartir el archivo-
 
 
 <div class="container col-lg-8">
-    <form action="acciones1" method="post" class="form-horizontal mt-4 needs-validation" novalidate>
+    <form action="accionCompartir.php" method="get"  class="form-horizontal mt-4 needs-validation" novalidate>
+        <input type="hidden" id="idemodificar" name="id" value="<?php echo $_GET["id"];?>">
         <div class="form-group ">
             <label class="label">Nombre del Archivo Compartido:</label>
-            <input type="text" pattern="^[a-zA-Z]+$" class="form-control" id="nombreC" name="nombreC" placeholder="1234.png" required> 
+            <input type="text" pattern="^[a-zA-Z.-_]+(\.?)[a-zA-z]+$" class="form-control" id="nombreC" name="nombreC" value="<?php echo $_GET['archivocompartir'];?>" required> 
         </div>
         <div class="form-group ">
             <label class="label">Ingresar cantidad de días que se comparte:</label>
@@ -40,9 +41,9 @@ Botón que permite generar un hash que sera el acceso para compartir el archivo-
             <label>Usuario que lo carga:</label>
             <select class="custom-select" name="user" id="user" required>
                 <option value="">---</option>
-                <option value="admin">Admin</option>
-                <option value="visitante">Visitante</option>
-                <option value="yo">Yo</option>               
+                <option value="1">Admin</option>
+                <option value="2">Visitante</option>
+                               
             </select>
         </div>
         <div class="form-group">
@@ -51,8 +52,8 @@ Botón que permite generar un hash que sera el acceso para compartir el archivo-
         </div>
         <div class="form-group" id="clave" style="display: none">
             <label class="label">Clave:</label>
-            <input type="password" class="form-control" id="contrasena" name="contrasena" required>
-            <p id="pantalla">
+            <input type="password" class="form-control" id="contrasena" name="contrasena" oninput="fortaleza()" >
+            <p class="text"id="pantalla">
             </p>
         </div>
         
@@ -70,7 +71,7 @@ Botón que permite generar un hash que sera el acceso para compartir el archivo-
         </div>
 
     </form>
-
+<a href="contenido.php">Volver pagina anterior</a>
 
 </div>
 </div>

@@ -1,5 +1,6 @@
 <?php
 include_once '../estructura/cabecera.php';
+
 ?>
 
 <!-- Creamos el archivo amarchivo.php para alta o modificación de un Archivo. Este archivo debe incluir los archivos: cabecera.php, pie.php y menu.php
@@ -16,25 +17,45 @@ Clave del Archivo a modificar. (Este debe ser un campo Oculto. -->
 
 <div class="container col-lg-8 bg-light">
     <form action="accionAmarchivo.php" method="post" class="form-horizontal mt-4 needs-validation" enctype="multipart/form-data" novalidate>
-        <div class="form-group">
+        <input type="hidden" id="idemodificar" name="id" value="<?php echo $_GET["id"];?>">
+        <?php
+        
+        if($_GET["clave"]==0){
+        echo "<div class='form-group'>
             <label>
                 cargar archivo
             </label>
-            <input type="file" name="archivo" id="archivo" onchange="sugerirExtension()">
+            <input type='file' name='archivo' id='archivo' onchange='sugerirExtension()'>
         </div>
-        <div class="form-group ">
-            <label class="label">Nombre del Archivo:</label>
-            <input type="text" pattern="^[a-zA-Z]+\.?[a-zA-z]" class="form-control" placeholder="1234.png"> 
-            <div class="valid-feedback">
+        <div class='form-group'>
+            <label class='label'>Nombre del Archivo:</label>
+            <input type='text' pattern='^[a-zA-Z.-_]+(\.?)[a-zA-z]+$' class='form-control' id='nombrearchivo' name='nombrearchivo' value=''> 
+            <div class='valid-feedback'>
                 genial
             </div>
-            <div class="invalid-feedback">
+            <div class='invalid-feedback'>
                 el campo no es el correcto o esta vacio
             </div>
             
-        </div>
+        </div>";
+        }else{
+            $archivomodificar=$_GET["archivomodificar"];
+            echo "<div class='form-group'>
+            <label class='label'>Nombre del Archivo:</label>
+            <input type='text' pattern='^[a-zA-Z.-_]+(\.?)[a-zA-z]+$' class='form-control' id='nombrearchivo' name='nombrearchivo' value='$archivomodificar'> 
+            <div class='valid-feedback'>
+                genial
+            </div>
+            <div class='invalid-feedback'>
+                el campo no es el correcto o esta vacio
+            </div>
+            
+        </div>";
+        }
+        ?>
+        
         <div class="form-group" id="editor">
-            <textarea id="editor">
+            <textarea id="editor" name="editor">
                 Esta es una descripción genérica, si lo necesita la puede cambiar.
             </textarea>
             
@@ -43,9 +64,9 @@ Clave del Archivo a modificar. (Este debe ser un campo Oculto. -->
             <label>Usuario:</label>
             <select class="custom-select" name="usuario" id="genero" required>
                 <option value="">---</option>
-                <option value="admin">Admin</option>
-                <option value="visitante">Visitante</option>
-                <option value="yo">Yo</option>               
+                <option value="1">Admin</option>
+                <option value="2">Visitante</option>
+                              
             </select>
         </div>
         <div class="form-group">
@@ -76,7 +97,7 @@ Clave del Archivo a modificar. (Este debe ser un campo Oculto. -->
                 </div>
         <div class="form-group">
                             
-                            <input type="hidden" class="form-control" id="clave" name="clave" required>       
+            <input type="hidden" class="form-control" id="clave" name="clave" value="<?php echo $_GET['clave'];?>"required>       
                       </div>
         <div class="form-group float-left">
                             

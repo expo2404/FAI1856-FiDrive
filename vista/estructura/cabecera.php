@@ -1,3 +1,6 @@
+<?php
+        include_once("../../configuracion.php");
+        ?>
 <!doctype html>
 <html lang="es">
     <head>
@@ -11,71 +14,26 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <!-- CONTENIDO ENRIQUECIDO-->
         <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
-        <script type="text/javascript">
-      
+        
+            
+              
+          
             
             
             
             
-            function sugerirExtension() {
-                
-                var archivo = document.getElementById('archivo').value;
-//    var nombre = document.getElementById('nombre');
-//    nombre.value = (archivo.split('\\').pop()).split('.', 1);
-                var extension = archivo.split('.').pop();
-                switch (extension) {
-                    case ('jpg'):
-                        document.getElementById('img').checked = true;
-                        break;
-                    case ('png'):
-                        document.getElementById('img').checked = true;
-                        break;
-                    case ('gif'):
-                        document.getElementById('img').checked = true;
-                        break;
-                    case ('txt'):
-                        document.getElementById('doc').checked = true;
-                        break;
-                    case ('doc'):
-                        document.getElementById('doc').checked = true;
-                        break;
-                    case ('docx'):
-                        document.getElementById('doc').checked = true;
-                        break;
-                    case ('zip'):
-                        document.getElementById('zip').checked = true;
-                        break;
-                    case ('rar'):
-                        document.getElementById('zip').checked = true;
-                        break;
-                    case ('pdf'):
-                        document.getElementById('pdf').checked = true;
-                        break;
-                    case ('xls'):
-                        document.getElementById('xls').checked = true;
-                        break;
-                    case ('xlsx'):
-                        document.getElementById('xls').checked = true;
-                        break;
-                    default:
-                        setRadioOff();
-                }
-            };
-            function mostrarOpciones(){
-    var elemento;
-    
-    elemento=document.getElementById("mostrarElemento").style.display="block";
-    
-    
-}
+            
+            
+   
+            
+            
+            
 
         </script>
         <title><?php $Titulo ?></title>
     </head>
     <body class="bg-success text-dark">
-        <?php
-        include_once("../../configuracion.php");
-        ?>
+        
         <nav class=" navbar-dark  bg-warning  p-2 ">
             <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Esta es la cabecera</a>
 
@@ -119,12 +77,13 @@
                                 trabajo practico entregable
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="../tpentregable/contenido.php">contenido</a> 
-                                <a class="dropdown-item" href="../tpentregable/amarchivo.php">amarchivo</a>
-                                <a class="dropdown-item" href="../tpentregable/compartirarchivo.php">compartir archivo</a>
+                                
+                                
+                                
                                 <a class="dropdown-item" href="../tpentregable/eliminararchivocompartido.php">eliminar archivo compartido</a>
-                                <a class="dropdown-item" href="../tpentregable/eliminararchivo.php">eliminar archivo </a>
-                                <a class="dropdown-item" href="../tpentregable/contenido.php">contenido</a> 
+                                
+                                <a class="dropdown-item" href="../tpentregable/contenido.php">contenido</a>
+                                <a class="dropdown-item" href="../tpentregable/compartidos.php">compartidos</a> 
                             </div>
                         </div>
                     </div>

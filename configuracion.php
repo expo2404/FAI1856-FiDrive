@@ -1,6 +1,27 @@
+
 <?php
+//header('Content-Type: text/html; charset=utf-8');
+//header ("Cache-Control: no-cache, must-revalidate ");
 
-$GLOBALS['ROOT'] =$_SERVER['DOCUMENT_ROOT'] ."/FAI1856-FiDrive/fai1856-FiDrive/";
+/////////////////////////////
+// CONFIGURACION APP//
+/////////////////////////////
 
-include_once("utiles/funciones.php");
+$PROYECTO ='FAI1856-FiDrive/fai1856-FiDrive';
+
+//variable que almacena el directorio del proyecto
+$ROOT =$_SERVER['DOCUMENT_ROOT']."/$PROYECTO/";
+
+include_once($ROOT.'utiles/funciones.php');
+
+
+// Variable que define la pagina de autenticacion del proyecto
+$INICIO = "Location:http://".$_SERVER['HTTP_HOST']."/$PROYECTO/vista/login/login.php";
+
+// variable que define la pagina principal del proyecto (menu principal)
+$PRINCIPAL = "Location:http://".$_SERVER['HTTP_HOST']."/$PROYECTO/principal.php";
+
+
+$_SESSION['ROOT']=$ROOT;
+
 ?>
